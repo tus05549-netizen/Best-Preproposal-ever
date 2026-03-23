@@ -11,4 +11,4 @@ Vinay: I'd be working with Holley on this project.
 
 ## Do you have any questions of your own?
 
-TODO
+What sort of difficulty would we have for this project? Please give us feedback on how our suggestions could be made to fit the difficulty, and hard enough to not have to take the final!!
