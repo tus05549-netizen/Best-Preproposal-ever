@@ -533,9 +533,10 @@ while True:
         if snake_position == snake2_position:
             snake_alive = False
             snake2_alive = False
-        '''for block in snake2_body:
+    if two_snakes and snake_alive and snake2_alive:
+        for block in snake2_body:
             if snake_position == block:
-                game_over()'''
+                snake_alive = False
     if two_snakes and snake2_alive and snake_alive:
         for block in snake_body:
             if snake2_position == block:
