@@ -136,6 +136,13 @@ while current == []:
 # Initialising pygame
 pygame.init()
 
+# Initialize music
+pygame.mixer.init()
+eat_sound = pygame.mixer.Sound("eat.mp3")
+powerup_sound = pygame.mixer.Sound("powerup.mp3")
+gameover_sound = pygame.mixer.Sound("gameover.mp3")
+move_sound = pygame.mixer.Sound("move.mp3")
+
 # Initialise game window
 pygame.display.set_caption('Snakes')
 game_window = pygame.display.set_mode((window_x, window_y))
@@ -239,7 +246,8 @@ def game_over():
         my_font = pygame.font.SysFont(current[2], 40)
     else:
         my_font = pygame.font.SysFont(current[2], 32)
-    
+    # game over sound
+    gameover_sound.play()
     # creating a text surface on which text 
     # will be drawn
     if two_snakes:
@@ -371,22 +379,30 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
+                move_sound.play()
                 change_to = 'UP'
             if event.key == pygame.K_DOWN:
+                move_sound.play()
                 change_to = 'DOWN'
             if event.key == pygame.K_LEFT:
+                move_sound.play()
                 change_to = 'LEFT'
             if event.key == pygame.K_RIGHT:
+                move_sound.play()
                 change_to = "RIGHT"
     # key events for second snake
             if two_snakes:
                 if event.key == pygame.K_w:
+                    move_sound.play()
                     change_to2 = 'UP'
                 if event.key == pygame.K_s:
+                    move_sound.play()
                     change_to2 = 'DOWN'
                 if event.key == pygame.K_a:
+                    move_sound.play()
                     change_to2 = 'LEFT'
                 if event.key == pygame.K_d:
+                    move_sound.play()
                     change_to2 = 'RIGHT'
 
     # If two keys pressed simultaneously 
@@ -446,6 +462,7 @@ while True:
         snake_body.insert(0, list(snake_position))
     if snake_alive:
         if snake_position[0] == fruit_position[0] and snake_position[1] == fruit_position[1] and fruit_spawn:
+            eat_sound.play()
             score1 += 10
             fruit_count += 1
             fruit_spawn = False
@@ -470,6 +487,7 @@ while True:
 
         if snake2_position[0] == fruit_position[0] and snake2_position[1] == fruit_position[1]:
             fruit_spawn = False
+            eat_sound.play()
             score2 += 10
         else:
             snake2_body.pop()
@@ -518,6 +536,7 @@ while True:
         score1 += 100
         game_window.fill(current[0])
         pop_spawn = False
+        powerup_sound.play()
         pop_position = random_border_position()
         fruit_count += 1
         
@@ -526,6 +545,7 @@ while True:
             score2 += 100
             game_window.fill(current[0])
             pop_spawn = False
+            powerup_sound.play()
             pop_position = random_border_position()
             fruit_count += 1
         
