@@ -66,8 +66,8 @@ orange = pygame.Color(255, 165, 0)
 yellow = pygame.Color(255, 255, 0)
 green = pygame.Color(0, 255, 0)
 blue = pygame.Color(0, 0, 255)
-grey = pygame.Color(122, 122, 122)
-lime = pygame.Color(65, 255, 0)
+grey = pygame.Color(192, 192, 192)
+lime = pygame.Color(141, 182, 0)
 maroon = pygame.Color(128, 0, 0)
 pink = pygame.Color(255, 105, 180)
 purple = pygame.Color(191, 0, 255)
@@ -205,7 +205,10 @@ def game_over():
     global score1
     global score2
     # creating font object my_font
-    my_font = pygame.font.SysFont(current[2], 36)
+    if window_x < 100:
+        my_font= pygame.font.SysFont(current[2], 36)
+    else:
+        my_font = pygame.font.SysFont(current[2], 40)
     
     # creating a text surface on which text 
     # will be drawn
