@@ -12,8 +12,8 @@ else:
     snake_speed = 22 
 
 # What mode?
-mode = input("How many players: one or two").lower().strip()
-two_snakes = mode in ["two", "2"]
+mode = input("Do you want to play one or two player? ").lower().strip()
+two_snakes = mode in ["two", "2", "t"]
 
 if two_snakes:
     snake2_position = [300, 50]
