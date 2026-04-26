@@ -206,7 +206,7 @@ def game_over():
     global score2
     # creating font object my_font
     if window_x < 100:
-        my_font= pygame.font.SysFont(current[2], 36)
+        my_font = pygame.font.SysFont(current[2], 36)
     else:
         my_font = pygame.font.SysFont(current[2], 40)
     
@@ -230,11 +230,15 @@ def game_over():
     
     # after pressing enter we will quit the program
     # "Press ENTER to exit" text
-    restart_surface = my_font.render('Press R to restart', True, white)
-    restart_rect = restart_surface.get_rect(center=(window_x/2, -20 + window_y/2))
+    if window_x < 600:
+        restart_surface = my_font.render('Press R to restart', True, white)
+        restart_rect = restart_surface.get_rect(center=(window_x/2, -20 + window_y/2))
 
-    exit_surface = my_font.render('or ENTER to exit', True, white)
-    exit_rect = exit_surface.get_rect(center=(window_x/2, 20 + window_y/2))
+        exit_surface = my_font.render('or ENTER to exit', True, white)
+        exit_rect = exit_surface.get_rect(center=(window_x/2, 20 + window_y/2))
+    else:
+        next_surface = my_font.render('Press R to restart or ENTER to exit', True, white)
+        next_rect = next_surface.get_rect(center=(window_x/2, -20 + window_y/2))
     waiting = True
     while waiting:
         game_window.fill(current[0])
@@ -304,8 +308,11 @@ def game_over():
 #def game_over_two_player(winner, score1, score2):
     
 
-#staring screen
-start_font = pygame.font.SysFont(current[2], 40)
+#starting screen
+if window_x == 360:
+    start_font = pygame.font.SysFont(current[2], 30)
+else:
+    start_font = pygame.font.SysFont(current[2], 40)
 
 waiting = True
 while waiting:
