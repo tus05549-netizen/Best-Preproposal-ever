@@ -39,8 +39,7 @@ while current_size == "":
         window_y = 840
         current_size = window_size
     else:
-        window_size = input("Please enter small, medium, or large! ")
-
+        window_size = input("Please enter pocket-sized, small, medium, large, or boulder-sized!")
 # What mode?
 mode = input("Do you want to play one or two player? ").lower().strip()
 two_snakes = mode in ["two", "2", "t"]
@@ -87,7 +86,7 @@ while current_size == "":
         window_y = 840
         current_size = window_size
     else:
-        window_size = input("Please enter small, medium, or large! ")'''
+        window_size = input("Please enter pocket-sized, small, medium, large, or boulder-sized! ")'''
 # defining colors
 black = pygame.Color(0, 0, 0)
 white = pygame.Color(255, 255, 255)
@@ -115,7 +114,7 @@ futuristic = [coral, navy, 'ocraextended', brown]
 '''hue_s = input("What color should the snake be: lime, green, yellow, blue, navy, purple, pink grey")
 hue_b = input("What color should the snake be: orange, lime, green, yellow, blue, navy, purple, grey")
 custom = []'''
-scheme = input("What color scheme do you want (dark, light, classic, neon, sky, futuristic): ")
+scheme = input("What theme do you want (dark, light, classic, neon, sky, futuristic): ")
 current = []
 while current == []:
     scheme = scheme.lower().strip()
